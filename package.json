@@ -1,0 +1,34 @@
+{
+  "name": "sprocket-guide-script",
+  "version": "1.0.0",
+  "description": "A CLI tool to sync guide video watch logs to Hubspot",
+  "main": "bin/index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint",
+    "lint:fix": "./node_modules/.bin/eslint --fix"
+  },
+  "author": "Samuel Ladapo",
+  "license": "ISC",
+  "bin": {
+    "sync-guides": "./bin/index.js"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^10.0.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "mysql2": "^3.6.2"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.18.10",
+    "babel-plugin-istanbul": "^6.1.1",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.19",
+    "nyc": "^15.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "^2.5.1"
+  }
+}
