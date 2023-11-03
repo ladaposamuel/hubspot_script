@@ -1,0 +1,26 @@
+
+# dist directory
+dist
+pgdata
+# node modules
+node_modules
+
+# package-lock.json
+package-lock.json
+
+# yarn.lock
+yarn.lock
+
+# env variables
+.env
+
+# test build
+.nyc_output
+coverage
+
+# editor files
+.editorconfig
+# editor files
+.vscode/
+
+.idea/
