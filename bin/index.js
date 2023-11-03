@@ -76,9 +76,12 @@ const syncContacts = async () => {
         `[sync-contact] Found ${contactsToCreate.length} contacts to create`
       );
       const saveUser = formatUsersForHubSpot(contactsToCreate);
-      const res = await batchCreateContact(saveUser);
+      const res = await batchCreateContact(saveUser['usersToCreate']);
+
+      console.log('[sync-contact]  🚀 ~ Hubspot Response:', res);
+
       console.log(
-        `[sync-contact] Synced new ${res.results.length} contacts to HubSpot`
+        `[sync-contact] Created new ${res.results.length} contacts to HubSpot`
       );
     }
 
@@ -93,9 +96,7 @@ const syncContacts = async () => {
         contacts.results
       );
       const res = await batchUpdateContact(updateUser['usersToCreate']);
-
-      console.log('[sync-contact]  🚀 ~', res);
-
+      console.log('[sync-contact]  🚀 ~ Hubspot Response:', res);
       console.log(
         `[sync-contact] Synced ${res.results.length} contacts updates to HubSpot`
       );
