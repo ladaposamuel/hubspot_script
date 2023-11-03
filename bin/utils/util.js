@@ -114,31 +114,40 @@ function formatDate(inputDate) {
   return `${year}-${month}-${day}`;
 }
 
-const formatUsersForHubSpot = (users, updateAction = false, contacts = null) => {
+const formatUsersForHubSpot = (
+  users,
+  updateAction = false,
+  contacts = null
+) => {
   const usersToCreate = {
     inputs: users.map((user) => {
       const properties = {};
       const watch_history = [];
 
-      const contact = contacts.find(
-        (contact) => contact.properties.email === user.email
-      );
-      const id = contact ? contact.id : null;
+      let id;
+      if (contacts) {
+        const contact = contacts.find(
+          (contact) => contact.properties.email === user.email
+        );
+        id = contact ? contact.id : null;
+      }
 
       for (const key in user) {
         if (key !== 'id' && key !== 'uuid') {
           if (user[key] === 1) {
             watch_history.push(key);
-          } else if (![
-            'connect_portal',
-            'create_page',
-            'create_layout',
-            'create_page_from_layout',
-            'install_custom_global_module',
-            'upgrade_custom_module',
-            'generate_theme_preview',
-            'generate_sr_badge',
-          ].includes(key)) {
+          } else if (
+            ![
+              'connect_portal',
+              'create_page',
+              'create_layout',
+              'create_page_from_layout',
+              'install_custom_global_module',
+              'upgrade_custom_module',
+              'generate_theme_preview',
+              'generate_sr_badge',
+            ].includes(key)
+          ) {
             switch (key) {
               case 'created_at':
                 delete properties.createdate;
