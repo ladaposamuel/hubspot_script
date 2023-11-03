@@ -16,7 +16,7 @@ GVSS is a small script written in NodeJS that syncs user's guide watch video log
 
 ## TODO
 
-- [] Condider large data, pagination and limiting queries
+- [] Consider large data, pagination and limiting queries
 - [] Handle errors efficiently so one contact item doesnt break the process
 
 ## Built With
