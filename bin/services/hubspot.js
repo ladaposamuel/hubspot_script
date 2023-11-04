@@ -47,7 +47,7 @@ const getContactByEmail = async (email) => {
 
 const getallContacts = async () => {
   try {
-    const limit = 10;
+    const limit = 100;
     const after = undefined;
     const properties = [
       'email',
